@@ -1,0 +1,38 @@
+SELECT
+		 *,
+		 
+			CASE
+				 WHEN "Insurance Aging"  >= 0
+				 AND	"Insurance Aging"  < 30 THEN "Insurance Aging"
+				 ELSE NULL
+			 END AS "0+ Days",
+		 
+			CASE
+				 WHEN "Insurance Aging"  >= 30
+				 AND	"Insurance Aging"  < 60 THEN "Insurance Aging"
+				 ELSE NULL
+			 END AS "30+ Days",
+		 
+			CASE
+				 WHEN "Insurance Aging"  >= 60
+				 AND	"Insurance Aging"  < 120 THEN "Insurance Aging"
+				 ELSE NULL
+			 END AS "60+ Days",
+		 
+			CASE
+				 WHEN "Insurance Aging"  >= 120
+				 AND	"Insurance Aging"  < 180 THEN "Insurance Aging"
+				 ELSE NULL
+			 END AS "120+ Days",
+		 
+			CASE
+				 WHEN "Insurance Aging"  >= 180
+				 AND	"Insurance Aging"  < 360 THEN "Insurance Aging"
+				 ELSE NULL
+			 END AS "180+ Days",
+		 
+			CASE
+				 WHEN "Insurance Aging"  >= 360 THEN "Insurance Aging"
+				 ELSE NULL
+			 END AS "360+ Days"
+FROM  "Insurance Raw Data" 
